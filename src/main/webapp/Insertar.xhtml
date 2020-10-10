@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ingresar Evaluaciones</title>
+    </h:head>
+    <h:body>
+        <center><h3><font face="Verdana, Geneva, sans-serif">Ingresar Evaluaciones</font></h3></center>
+       <br />
+       <h:form id="evaluaciones">
+   <p:growl id="growl" sticky="true" />
+   <p:dataTable id="evaluacionesList" var="evaluaciones" value="#{evaluacionesbean.newevaluaciones}">
+      <p:column headerText="Id">
+          <p:inputText value="#{evaluacionesbean.newevaluaciones.id}" converter="#{BigDecimal}" required="false" disabled="true"/>
+      </p:column>
+ 
+      <p:column headerText="Nombres">
+          <p:inputText id="nombres" value="#{evaluacionesbean.newevaluaciones.nombres}"/>
+      </p:column>
+ 
+      <p:column headerText="Apellidos">
+          <p:inputText id="apellidos" value="#{evaluacionesbean.newevaluaciones.apellidos}"/>
+       </p:column>
+ 
+       <p:column headerText="Materia">
+           <p:inputText id="materia" value="#{evaluacionesbean.newevaluaciones.materia}"/>
+       </p:column>
+ 
+       <p:column headerText="Nota">
+           <p:inputText id="nota" value="#{evaluacionesbean.newevaluaciones.evaluaciones}"/>
+       </p:column>
+       
+       <p:column headerText="Estado">
+           <p:inputText id="estado" value="#{evaluacionesbean.newevaluaciones.estado}"/>
+       </p:column>
+             
+           
+        <p:column>
+           <p:commandButton update="evaluacionesList" value="Insertar" icon="pi pi-save"
+                            action="#{evaluacionesbean.crear()}"
+                        styleClass="ui-priority-primary">
+           </p:commandButton>
+        </p:column>
+     </p:dataTable>
+     <br/>
+     
+</h:form>
+    </h:body>
+</html>
